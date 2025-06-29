@@ -1,0 +1,131 @@
+/* Diseño de Login*/
+.padre{
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+}
+.tamaño-imagen{
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+}
+.estilo-profile{
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.cajatexto{
+  background-color: #cccccc40;
+  border-color: slategray;
+  border-radius: 30px;
+  width: 100%;
+  padding: 15px;
+  border-width: 0px;
+  margin-bottom: 20px;
+}
+.cajatexto:focus{
+  outline: 1px solid rgb(34, 45, 66);
+  box-shadow: 0 0 10px rgb(22, 34, 55);
+}
+.btnform{
+  background-color: #14253d;
+  border-color: slategray;
+  border-radius: 30px;
+  width: 100%;
+  padding: 15px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  color: white;
+
+}
+.texto{
+  font-size: 20px;
+  color: slategray;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+
+}
+.btnswicth{
+  background-color: #14253d;
+  border-radius: 30px;
+  padding: 3px;
+  border-width: 0px;
+  color: white;
+  font-size: 16px;
+}
+/* Diseño de Header*/
+
+.header {
+    padding: 1rem 2rem;
+    background-color: #183B4E;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .search-form {
+    flex-grow: 1;
+    margin: 0 5rem;
+    display: flex;
+  }
+  
+  .search-form input {
+    flex-grow: 1;
+    padding: 0.4rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-form button {
+    padding: 0.4rem 1rem;
+    border: none;
+    background-color: #0F2D3C;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  .btn {
+    background-color: #27548A; /* Azul típico de botón */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #212d3c;
+    text-decoration: none; /* Remueve subrayado al pasar el mouse */
+  }
+  
+
+  
+ 
