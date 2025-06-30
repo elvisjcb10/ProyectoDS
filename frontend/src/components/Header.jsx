@@ -8,12 +8,22 @@ const auth = getAuth(appFireBase);
 
 function Header({ nombreUsuario }) {
   const [query, setQuery] = useState('');
+  const [menuVisible, setMenuVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (query.trim()) {
       navigate(`/buscar?q=${encodeURIComponent(query)}`);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/login');
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error);
     }
   };
 
@@ -37,9 +47,21 @@ function Header({ nombreUsuario }) {
         <Link to="/pnegocio" className="nav-link">Publicar Negocio</Link>
 
         {nombreUsuario ? (
-          <div className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FaUserCircle />
-            <span>{nombreUsuario}</span>
+          <div
+            className="perfil-container"
+            onClick={() => setMenuVisible(!menuVisible)}
+          >
+            <FaUserCircle className="icono-perfil" />
+            <span className="nombre-usuario">{nombreUsuario}</span>
+
+            {menuVisible && (
+              <div className="menu-desplegable">
+                <Link to="/mis-negocios">Mis negocios</Link>
+                <Link to="/mis-ligues">Mis ligues</Link>
+                <Link to="/empresas-seguidas">Empresas que sigo</Link>
+                <button onClick={handleLogout}>Cerrar sesión</button>
+              </div>
+            )}
           </div>
         ) : (
           <Link to="/login" className="nav-link">Registrarse</Link>

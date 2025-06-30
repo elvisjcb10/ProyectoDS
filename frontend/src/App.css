@@ -127,5 +127,192 @@
   }
   
 
-  
+  /* Estilos para el panel desplegable de usuario */
+.perfil-container {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.icono-perfil {
+  font-size: 1.5rem;
+}
+
+.nombre-usuario {
+  font-size: 1rem;
+  color: white;
+}
+
+.menu-desplegable {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.menu-desplegable a,
+.menu-desplegable button {
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menu-desplegable a:hover,
+.menu-desplegable button:hover {
+  background-color: #f0f0f0;
+  color: #183B4E;
+}
+
+ /* --- Sección: Mis Negocios --- */
+.mis-negocios {
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  background-color: #f9f9f9;
+}
+
+.card-negocio {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card-negocio:hover {
+  transform: translateY(-5px);
+}
+
+.card-negocio img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-negocio h3 {
+  margin: 0.8rem 0 0.5rem;
+  font-size: 1.2rem;
+  color: #183B4E;
+}
+
+.card-negocio p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Botón para agregar nuevo negocio */
+.mis-negocios button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  background-color: #183B4E;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.mis-negocios button:hover {
+  background-color: #27548A;
+}
  
+
+/**/ 
+.form-negocio {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.form-negocio h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #183B4E;
+}
+
+.form-negocio input[type="text"],
+.form-negocio textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.form-negocio textarea {
+  height: 100px;
+}
+
+.drop-zone {
+  border: 2px dashed #27548A;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f4f8ff;
+  color: #27548A;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drop-zone:hover {
+  background-color: #eaf1ff;
+}
+
+.drop-zone p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.preview {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.form-negocio button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #27548A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-negocio button:hover {
+  background-color: #1d3d68;
+}

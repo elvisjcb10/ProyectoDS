@@ -6,7 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';
 import Header from './components/Header';
+import MisNegocios from './components/MisNegocios';
 import axios from 'axios';
+import CrearNegocio from './components/CrearNegocio'; // ✅ crea el componente si no existe
+
 import './App.css';
 
 const auth = getAuth(appFireBase);
@@ -49,6 +52,8 @@ function App() {
           <Route path="/producto-detalle" element={<div>Detalle de Producto</div>} />
           <Route path="/pnegocio" element={<div>Publicar Negocio</div>} />
           <Route path="/signup" element={<div>Registro</div>} />
+          <Route path="/mis-negocios" element={<MisNegocios usuarioId={datosUsuario?.id} />} />
+          <Route path="/crear-negocio" element={<CrearNegocio usuarioId={datosUsuario?.id} />} />
         </Routes>
       </div>
     </Router>
