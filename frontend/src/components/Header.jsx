@@ -44,7 +44,6 @@ function Header({ nombreUsuario }) {
       </form>
 
       <nav className="nav">
-        <Link to="/pnegocio" className="nav-link">Publicar Negocio</Link>
 
         {nombreUsuario ? (
           <div
@@ -57,7 +56,7 @@ function Header({ nombreUsuario }) {
             {menuVisible && (
               <div className="menu-desplegable">
                 <Link to="/mis-negocios">Mis negocios</Link>
-                <Link to="/mis-ligues">Mis ligues</Link>
+                <Link to="/mis-ligues">Mis likes</Link>
                 <Link to="/empresas-seguidas">Empresas que sigo</Link>
                 <button onClick={handleLogout}>Cerrar sesión</button>
               </div>

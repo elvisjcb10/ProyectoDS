@@ -17,11 +17,11 @@ function MisNegocios({ usuarioId }) {
   return (
     <div className="mis-negocios">
       {negocios.map((negocio) => (
-        <div key={negocio.id} className="card-negocio">
-          <img src={negocio.imagen || 'imagen-defecto.jpg'} alt={negocio.nombre} />
-          <h3>{negocio.nombre}</h3>
-          <p>{negocio.descripcion}</p>
-        </div>
+        <div key={negocio.id} className="card-negocio" onClick={() => navigate(`/negocio/${negocio.id}`)}>
+  <img src={negocio.imagen || 'imagen-defecto.jpg'} alt={negocio.nombre} />
+  <h3>{negocio.nombre}</h3>
+  <p>{negocio.descripcion}</p>
+</div>
       ))}
       
       <button onClick={() => navigate('/crear-negocio')}>

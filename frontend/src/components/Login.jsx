@@ -1,9 +1,5 @@
-// Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import imagen from '../assets/loginvector.jpeg';
-import imageProfile from '../assets/profile1.png';
-
 import appFireBase from "../credenciales";
 import {
   getAuth,
@@ -27,20 +23,17 @@ const Login = ({ onLoginSuccess }) => {
 
       try {
         await createUserWithEmailAndPassword(auth, correo, contraseña);
-        const usuario = auth.currentUser;
-
         await fetch("http://localhost:3001/api/usuarios/registrar", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            nombre: nombre,
-            correo: correo,
+            nombre,
+            correo,
             contrasena: contraseña,
             tipo: "cliente",
           }),
         });
 
-        // Obtener los datos del usuario desde el backend
         const res = await fetch(`http://localhost:3001/api/usuarios/${encodeURIComponent(correo)}`);
         const datos = await res.json();
         onLoginSuccess(datos);
@@ -53,8 +46,6 @@ const Login = ({ onLoginSuccess }) => {
     } else {
       try {
         await signInWithEmailAndPassword(auth, correo, contraseña);
-
-        // Obtener los datos del usuario desde el backend
         const res = await fetch(`http://localhost:3001/api/usuarios/${encodeURIComponent(correo)}`);
         const datos = await res.json();
         onLoginSuccess(datos);
@@ -68,56 +59,57 @@ const Login = ({ onLoginSuccess }) => {
 
   return (
     <div className="container">
-      <div className="row">
-        {/* Columna pequeña: formulario */}
-        <div className="col-md-4">
-          <div className="padre">
-            <div className="card card-body shadow-lg">
-              <img src={imageProfile} alt="perfil" className="estilo-profile" />
-              <form onSubmit={functAutenticacion}>
-                {registrando && (
-                  <input
-                    id="nombre"
-                    type="text"
-                    placeholder="Tu nombre"
-                    className="cajatexto"
-                    required
-                  />
-                )}
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Ingresa Email"
-                  className="cajatexto"
-                  required
-                />
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Ingresar Contraseña"
-                  className="cajatexto"
-                  required
-                />
-                <button className="btnform">
-                  {registrando ? "Registrate" : "Inicia Sesión"}
-                </button>
-              </form>
-              <h4 className="texto">
-                {registrando ? "¿Ya tienes cuenta?" : "¿No tienes cuenta?"}
-                <button
-                  className="btnswicth"
-                  onClick={() => setRegistrando(!registrando)}
-                >
-                  {registrando ? "Inicia Sesión" : "Registrate"}
-                </button>
-              </h4>
-            </div>
+      <div className="row login-wrapper">
+        {/* Columna izquierda: Bienvenida visual */}
+        <div className="col-md-8 login-izquierda">
+          <div className="contenido-bienvenida">
+            <h1>Bienvenido a MiNegocio.pe</h1>
+            <p>
+              Descubre negocios locales, explora sus publicaciones y apoya a los emprendedores de tu comunidad.
+            </p>
           </div>
         </div>
 
-        {/* Columna grande: imagen */}
-        <div className="col-md-8">
-          <img src={imagen} alt="login" className="tamaño-imagen" />
+        {/* Columna derecha: Formulario sin tarjeta */}
+        <div className="col-md-4 login-derecha">
+          <form onSubmit={functAutenticacion} className="formulario">
+            {registrando && (
+              <input
+                id="nombre"
+                type="text"
+                placeholder="Tu nombre"
+                className="cajatexto"
+                required
+              />
+            )}
+            <input
+              id="email"
+              type="email"
+              placeholder="Ingresa Email"
+              className="cajatexto"
+              required
+            />
+            <input
+              id="password"
+              type="password"
+              placeholder="Ingresar Contraseña"
+              className="cajatexto"
+              required
+            />
+            <button className="btnform">
+              {registrando ? "Registrate" : "Inicia Sesión"}
+            </button>
+            <h4 className="texto">
+              {registrando ? "¿Ya tienes cuenta?" : "¿No tienes cuenta?"}
+              <button
+                className="btnswicth"
+                onClick={() => setRegistrando(!registrando)}
+                type="button"
+              >
+                {registrando ? "Inicia Sesión" : "Registrate"}
+              </button>
+            </h4>
+          </form>
         </div>
       </div>
     </div>

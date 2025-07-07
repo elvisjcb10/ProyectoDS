@@ -9,7 +9,9 @@ import Header from './components/Header';
 import MisNegocios from './components/MisNegocios';
 import axios from 'axios';
 import CrearNegocio from './components/CrearNegocio'; // ✅ crea el componente si no existe
-
+import PerfilNegocio from './components/PerfilNegocio';
+import MisLikes from './components/MisLikes';
+import EmpresasSeguidas from './components/EmpresasSeguidas';
 import './App.css';
 
 const auth = getAuth(appFireBase);
@@ -54,6 +56,10 @@ function App() {
           <Route path="/signup" element={<div>Registro</div>} />
           <Route path="/mis-negocios" element={<MisNegocios usuarioId={datosUsuario?.id} />} />
           <Route path="/crear-negocio" element={<CrearNegocio usuarioId={datosUsuario?.id} />} />
+          <Route path="/negocio/:id" element={<PerfilNegocio usuarioId={datosUsuario?.id} />} />
+          <Route path="/mis-ligues" element={<MisLikes usuarioId={datosUsuario?.id} />} />
+          <Route path="/empresas-seguidas" element={<EmpresasSeguidas usuarioId={datosUsuario?.id} />} />
+
         </Routes>
       </div>
     </Router>
