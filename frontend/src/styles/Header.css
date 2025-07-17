@@ -1,0 +1,164 @@
+/* Contenedor de botones de autenticación */
+.auth-buttons {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos base para ambos botones */
+.login-button,
+.register-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 42px;
+  box-sizing: border-box;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Botón de Iniciar Sesión */
+.login-button {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border-right: 1px solid #e0e0e0;
+}
+
+.login-button:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+/* Botón de Registrarse */
+.register-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.register-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.register-button:active {
+  transform: translateY(0);
+}
+
+/* Efecto de ondas al hacer clic */
+.login-button::before,
+.register-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.login-button:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+.register-button:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* Variante con gradiente */
+.auth-buttons.gradient-theme .register-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auth-buttons.gradient-theme .register-button:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Variante oscura */
+.auth-buttons.dark-theme .login-button {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  border-right-color: #4a5568;
+}
+
+.auth-buttons.dark-theme .login-button:hover {
+  background-color: #4a5568;
+}
+
+.auth-buttons.dark-theme .register-button {
+  background-color: #4299e1;
+}
+
+.auth-buttons.dark-theme .register-button:hover {
+  background-color: #3182ce;
+}
+
+/* Estados de focus para accesibilidad */
+.login-button:focus,
+.register-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .auth-buttons {
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: visible;
+    box-shadow: none;
+  }
+  
+  .login-button,
+  .register-button {
+    border-radius: 6px;
+    width: 100%;
+    min-width: 140px;
+    margin-bottom: 8px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .login-button {
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .register-button {
+    margin-bottom: 0;
+  }
+}
+
+/* Animación de entrada */
+.auth-buttons {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
