@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const path = require('path');
 
+
 const usuariosRoutes = require('./routes/usuario.routes');
 const emprendimientosRoutes = require('./routes/emprendimientos.routes');
 const publicacionesRoutes = require('./routes/publicaciones.routes');
@@ -25,7 +26,8 @@ app.use('/api/seguimientos', seguimientosRoutes);
 // Carpeta pública para imágenes subidas
 app.use('/uploads', express.static('uploads'));
 
-// Servidor (última línea)
-app.listen(3001, () => {
-  console.log('Servidor corriendo en http://localhost:3001');
+// ✅ Puerto dinámico para Railway
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
