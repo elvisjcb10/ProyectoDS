@@ -50,7 +50,6 @@ function App() {
       <Header nombreUsuario={datosUsuario?.nombre || ''} />
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/" element={<Inicio />} />
           <Route path="/inicio" element={<Home />} />
           <Route path="/login" element={<Login onLoginSuccess={setDatosUsuario} />} />
@@ -62,10 +61,13 @@ function App() {
           <Route path="/negocio/:id" element={<PerfilNegocio usuarioId={datosUsuario?.id} />} />
           <Route path="/mis-ligues" element={<MisLikes usuarioId={datosUsuario?.id} />} />
           <Route path="/empresas-seguidas" element={<EmpresasSeguidas usuarioId={datosUsuario?.id} />} />
+          <Route path="/productos" element={<Home />} />
+          <Route path="/inicio" element={<Inicio />} />
 
         </Routes>
       </div>
     </Router>
   );
 }
+
 export default App;

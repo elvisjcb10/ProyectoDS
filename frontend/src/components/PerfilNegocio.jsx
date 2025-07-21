@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import '../styles/PerfilNegocio.css'; // Asegúrate de tener un archivo CSS para estilos
 function PerfilNegocio({ usuarioId }) {
   const { id } = useParams();
   const [negocio, setNegocio] = useState(null);

@@ -21,7 +21,7 @@ const EmpresasSeguidas = ({ usuarioId }) => {
 
   return (
     <div className="contenedor-empresas">
-      <h2>Empresas que sigues ⭐</h2>
+      <h2>Empresas que sigues </h2>
       <div className="grid-empresas">
         {empresas.map((empresa) => (
           <Link key={empresa.id} to={`/negocio/${empresa.id}`} className="card-empresa">

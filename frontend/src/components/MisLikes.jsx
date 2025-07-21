@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ModalPublicacion from './ModalPublicacion';
-
 const MisLikes = ({ usuarioId }) => {
   const [likes, setLikes] = useState([]);
   const [modalAbierto, setModalAbierto] = useState(false);
@@ -33,7 +32,7 @@ const MisLikes = ({ usuarioId }) => {
 
   return (
     <div className="contenedor-likes">
-      <h2>Mis Likes 💖</h2>
+      <h2>Mis Likes </h2>
       <div className="grid-publicaciones">
         {likes.map((publi) => (
           <div key={publi.publicacion_id} className="card" onClick={() => abrirModal(publi)}>

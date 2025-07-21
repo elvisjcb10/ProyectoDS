@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import { getAuth, signOut } from 'firebase/auth';
 import appFireBase from '../credenciales';
-
 import "../styles/Header.css";
 const auth = getAuth(appFireBase);
 
@@ -53,7 +52,6 @@ function Header({ nombreUsuario }) {
       </form>
 
       <nav className="nav">
-
         {nombreUsuario ? (
           // Usuario logueado - Mostrar perfil y menú desplegable
           <div
@@ -68,7 +66,6 @@ function Header({ nombreUsuario }) {
                 <Link to="/mis-negocios">Mis negocios</Link>
                 <Link to="/mis-ligues">Mis likes</Link>
                 <Link to="/empresas-seguidas">Empresas que sigo</Link>
-
                 <Link to="/inicio">Inicio</Link>
                 <button onClick={handleLogout}>Cerrar sesión</button>
               </div>

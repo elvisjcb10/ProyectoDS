@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ModalPublicacion from "./ModalPublicacion";
 import { HomeIcon } from "lucide-react";
-
+import "../styles/Home.css"; // Asegúrate de tener un archivo CSS para estilos
 const Home = ({ usuarioId }) => {
   const [publicaciones, setPublicaciones] = useState([]);
   const [modalAbierto, setModalAbierto] = useState(false);

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Building2, Users, Target, Award, MapPin, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 import "../styles/Inicio.css";
 const Inicio = () => {
   return (
@@ -15,7 +17,9 @@ const Inicio = () => {
               Conectamos negocios locales con clientes que buscan calidad y excelencia.
             </p>
             <button className="hero-button">
-              Explorar Productos
+              <Link to="/productos" className="hero-button-link">
+                Explorar Productos
+              </Link>
             </button>
           </div>
         </div>
