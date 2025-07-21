@@ -1,0 +1,804 @@
+/* ========== PERFIL NEGOCIO - DISEÑO ULTRA MODERNO ========== */
+:root {
+  /* Paleta de colores principal */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  
+  /* Colores sólidos */
+  --primary: #6366f1;
+  --primary-light: #a5b4fc;
+  --primary-dark: #4338ca;
+  --secondary: #06b6d4;
+  --accent: #d946ef;
+  
+  /* Neutrales */
+  --white: #d8d9dc;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e0;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  
+  /* Colores de estado */
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #06b6d4;
+}
+
+.perfil-negocio {
+  min-height: 100vh;
+  background: var(--primary-gradient);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.perfil-negocio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.04)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+  animation: backgroundFloat 20s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-30px, -30px) rotate(1deg); }
+  66% { transform: translate(30px, -20px) rotate(-1deg); }
+}
+
+/* ========== BANNER PRINCIPAL ========== */
+.banner {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3);
+  z-index: 1;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(99, 102, 241, 0.7) 0%,
+    rgba(139, 92, 246, 0.5) 50%,
+    rgba(217, 70, 239, 0.4) 100%
+  );
+  z-index: 2;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.banner:hover img {
+  transform: scale(1.05);
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    to top,
+    rgba(99, 102, 241, 0.9) 0%,
+    transparent 100%
+  );
+  z-index: 3;
+}
+
+/* ========== INFORMACIÓN DEL NEGOCIO ========== */
+.info-negocio {
+  max-width: 1200px;
+  margin: -80px auto 0;
+  position: relative;
+  z-index: 10;
+  background: rgba(101, 134, 167, 0.95);
+  border-radius: 30px;
+  padding: 3rem;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 30px 60px rgba(15, 23, 42, 0.1),
+    0 10px 30px rgba(99, 102, 241, 0.2);
+  animation: slideInUp 0.8s ease-out both;
+  margin-bottom: 2rem;
+  mx: 1rem;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-negocio h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.info-negocio h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+.info-negocio p {
+  font-size: 1.2rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-negocio p:first-of-type {
+  font-size: 1.4rem;
+  color: var(--gray-700);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.info-negocio p strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ========== BOTÓN DE SEGUIMIENTO ========== */
+.info-negocio button {
+  background: var(--primary-gradient);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 2rem auto 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-negocio button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.info-negocio button:hover::before {
+  left: 100%;
+}
+
+.info-negocio button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5);
+}
+
+.info-negocio button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* ========== FORMULARIO DE PUBLICACIÓN ========== */
+.form-publicacion {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  background: rgba(248, 250, 252, 0.95);
+  border-radius: 30px;
+  padding: 2.5rem;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.1),
+    0 5px 20px rgba(99, 102, 241, 0.15);
+  animation: slideInUp 0.8s ease-out 0.2s both;
+  mx: 1rem;
+}
+
+.form-publicacion h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gray-800), var(--gray-600));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-publicacion form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-publicacion input,
+.form-publicacion textarea {
+  padding: 1.2rem 1.5rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 15px;
+  font-size: 1.1rem;
+  background: rgba(248, 250, 252, 0.8);
+  color: var(--gray-700);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-publicacion input:focus,
+.form-publicacion textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+  background: var(--white);
+  transform: translateY(-2px);
+}
+
+.form-publicacion textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ========== DROP ZONE ========== */
+.drop-zone {
+  border: 3px dashed var(--primary-light);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(99, 102, 241, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.drop-zone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.drop-zone:hover::before {
+  left: 100%;
+}
+
+.drop-zone:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+.drop-zone p {
+  color: var(--primary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.drop-zone .preview {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+}
+
+/* ========== BOTÓN PUBLICAR ========== */
+.form-publicacion button[type="submit"] {
+  background: var(--success-gradient);
+  color: var(--white);
+  border: none;
+  padding: 1.2rem 2rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-publicacion button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.form-publicacion button[type="submit"]:hover::before {
+  left: 100%;
+}
+
+.form-publicacion button[type="submit"]:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
+}
+
+/* ========== LISTA DE PUBLICACIONES ========== */
+.lista-publicaciones {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.lista-publicaciones h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 0 4px 8px rgba(15, 23, 42, 0.3);
+  background: linear-gradient(135deg, var(--white), var(--gray-100));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========== CARDS DE PUBLICACIONES ========== */
+.card-publicacion {
+  background: rgba(248, 250, 252, 0.95);
+  border-radius: 25px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.1),
+    0 5px 20px rgba(99, 102, 241, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-publicacion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.card-publicacion:hover::before {
+  left: 100%;
+}
+
+.card-publicacion:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 
+    0 30px 60px rgba(15, 23, 42, 0.15),
+    0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.card-publicacion h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gray-800), var(--gray-600));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-publicacion p {
+  color: var(--gray-600);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-publicacion .preview {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.card-publicacion:hover .preview {
+  transform: scale(1.02);
+}
+
+/* ========== META DE PUBLICACIÓN ========== */
+.publicacion-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(99, 102, 241, 0.05);
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.publicacion-meta span {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.publicacion-meta button {
+  background: var(--danger-gradient);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.publicacion-meta button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+}
+
+/* ========== SECCIÓN DE COMENTARIOS ========== */
+.comentarios {
+  position: relative;
+  z-index: 2;
+}
+
+.comentario {
+  background: rgba(6, 182, 212, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--secondary);
+  transition: all 0.3s ease;
+}
+
+.comentario:hover {
+  background: rgba(6, 182, 212, 0.08);
+  transform: translateX(5px);
+}
+
+.comentario strong {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.ver-mas-comentarios {
+  background: transparent;
+  color: var(--secondary);
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  display: block;
+  width: fit-content;
+}
+
+.ver-mas-comentarios:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* ========== FORMULARIO DE COMENTARIO ========== */
+.form-comentario {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.form-comentario input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 15px;
+  font-size: 1rem;
+  background: rgba(248, 250, 252, 0.8);
+  color: var(--gray-700);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-comentario input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  background: var(--white);
+}
+
+.form-comentario button {
+  background: var(--secondary-gradient);
+  color: var(--white);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.form-comentario button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1240px) {
+  .info-negocio,
+  .form-publicacion,
+  .lista-publicaciones {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 300px;
+    border-radius: 0 0 30px 30px;
+  }
+  
+  .info-negocio {
+    margin: -60px 1rem 0;
+    padding: 2rem;
+    border-radius: 25px;
+  }
+  
+  .info-negocio h2 {
+    font-size: 2.2rem;
+  }
+  
+  .info-negocio p {
+    font-size: 1.1rem;
+  }
+  
+  .form-publicacion {
+    padding: 2rem;
+    border-radius: 25px;
+  }
+  
+  .form-publicacion h3 {
+    font-size: 1.6rem;
+  }
+  
+  .card-publicacion {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  
+  .card-publicacion h4 {
+    font-size: 1.5rem;
+  }
+  
+  .lista-publicaciones h3 {
+    font-size: 2rem;
+  }
+  
+  .form-comentario {
+    flex-direction: column;
+  }
+  
+  .publicacion-meta {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 250px;
+    border-radius: 0 0 25px 25px;
+  }
+  
+  .info-negocio {
+    margin: -40px 0.5rem 0;
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .info-negocio h2 {
+    font-size: 1.8rem;
+  }
+  
+  .form-publicacion {
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .card-publicacion {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+  
+  .lista-publicaciones {
+    padding: 0 0.5rem;
+  }
+  
+  .drop-zone {
+    padding: 1.5rem;
+  }
+}
+
+/* ========== ANIMACIONES ADICIONALES ========== */
+.card-publicacion:nth-child(odd) { animation: slideInLeft 0.8s ease-out both; }
+.card-publicacion:nth-child(even) { animation: slideInRight 0.8s ease-out both; }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== OPTIMIZACIONES DE RENDIMIENTO ========== */
+.card-publicacion {
+  will-change: transform;
+  contain: layout;
+}
+
+.banner img {
+  will-change: transform;
+}
+
+.info-negocio button {
+  will-change: transform;
+}
+
+/* ========== TEMA OSCURO ========== */
+@media (prefers-color-scheme: dark) {
+  .perfil-negocio {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+  }
+  
+  .info-negocio,
+  .form-publicacion,
+  .card-publicacion {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .info-negocio p,
+  .card-publicacion p {
+    color: var(--gray-300);
+  }
+  
+  .form-publicacion input,
+  .form-publicacion textarea,
+  .form-comentario input {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--gray-600);
+    color: var(--gray-200);
+  }
+  
+  .comentario {
+    background: rgba(6, 182, 212, 0.1);
+  }
+}
+
+/* ========== ACCESIBILIDAD ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card-publicacion:hover,
+  .info-negocio button:hover {
+    transform: none;
+  }
+}
+
+/* ========== ESTADOS ADICIONALES ========== */
+.estado-exito {
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: var(--success);
+}
+
+.estado-advertencia {
+  color: var(--warning);
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: var(--warning);
+}
+
+.estado-error {
+  color: var(--danger);
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: var(--danger);
+}
+
+.estado-info {
+  color: var(--info);
+  background-color: rgba(6, 182, 212, 0.1);
+  border-color: var(--info);
+}

@@ -1,0 +1,582 @@
+/* ========== MIS NEGOCIOS - DISEÑO ULTRA MODERNO ========== */
+.mis-negocios {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.mis-negocios::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+  animation: backgroundFloat 20s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-30px, -30px) rotate(1deg); }
+  66% { transform: translate(30px, -20px) rotate(-1deg); }
+}
+
+/* ========== HEADER DE MIS NEGOCIOS ========== */
+.mis-negocios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.mis-negocios-title {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-icon {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  padding: 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.titulo-contador {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-left: 1rem;
+}
+
+/* ========== BOTÓN CREAR NEGOCIO ========== */
+.btn-crear-negocio {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 25px rgba(255, 107, 107, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-crear-negocio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+  z-index: -1;
+}
+
+.btn-crear-negocio:hover::before {
+  left: 100%;
+}
+
+.btn-crear-negocio:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 15px 35px rgba(255, 107, 107, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #ff5252, #d32f2f);
+}
+
+.btn-crear-negocio:active {
+  transform: translateY(-1px) scale(1.02);
+  transition-duration: 0.1s;
+}
+
+/* ========== GRID DE NEGOCIOS ========== */
+.grid-negocios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== CARDS DE NEGOCIO ========== */
+.card-negocio {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 1px 8px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center center;
+}
+
+.card-negocio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(102, 126, 234, 0.3), 
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.card-negocio:hover::before {
+  left: 100%;
+}
+
+.card-negocio:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.15),
+    0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.card-negocio:active {
+  transform: translateY(-12px) scale(1.02);
+  transition-duration: 0.1s;
+}
+
+/* Animaciones de entrada escalonadas */
+.card-negocio:nth-child(1) { animation: slideInUp 0.6s ease-out 0.1s both; }
+.card-negocio:nth-child(2) { animation: slideInUp 0.6s ease-out 0.2s both; }
+.card-negocio:nth-child(3) { animation: slideInUp 0.6s ease-out 0.3s both; }
+.card-negocio:nth-child(4) { animation: slideInUp 0.6s ease-out 0.4s both; }
+.card-negocio:nth-child(n+5) { animation: slideInUp 0.6s ease-out 0.5s both; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== IMAGEN DEL NEGOCIO ========== */
+.card-negocio img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.card-negocio:hover img {
+  transform: scale(1.08);
+}
+
+/* ========== CONTENIDO DE LA CARD ========== */
+.contenido-negocio {
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(145deg, #ffffff, #f8f9ff);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-negocio h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2d3748, #4a5568);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.card-negocio:hover h3 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(5px);
+}
+
+.card-negocio p {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* ========== FOOTER DE LA CARD ========== */
+.negocio-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e2e8f0;
+  margin-top: auto;
+}
+
+.negocio-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.negocio-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* ========== ESTADO VACÍO ========== */
+.empty-negocios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.empty-icon {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: floatEmpty 4s ease-in-out infinite;
+}
+
+@keyframes floatEmpty {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.empty-negocios h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.empty-negocios p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ========== LOADING STATE ========== */
+.loading-negocios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  color: white;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 1200px) {
+  .grid-negocios {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mis-negocios {
+    padding: 1rem 0.5rem;
+  }
+  
+  .mis-negocios-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mis-negocios-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  
+  .titulo-contador {
+    font-size: 1rem;
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  .btn-crear-negocio {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .grid-negocios {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .card-negocio {
+    border-radius: 20px;
+    min-height: 350px;
+  }
+  
+  .contenido-negocio {
+    padding: 1.5rem;
+  }
+  
+  .card-negocio h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mis-negocios-title {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .title-icon {
+    padding: 0.8rem;
+    border-radius: 15px;
+  }
+  
+  .btn-crear-negocio {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+    gap: 0.5rem;
+  }
+  
+  .grid-negocios {
+    gap: 1rem;
+    padding: 0 0.25rem;
+  }
+  
+  .card-negocio {
+    min-height: 320px;
+    border-radius: 16px;
+  }
+  
+  .card-negocio img {
+    height: 180px;
+  }
+  
+  .contenido-negocio {
+    padding: 1.25rem;
+  }
+  
+  .card-negocio h3 {
+    font-size: 1.2rem;
+  }
+  
+  .card-negocio p {
+    font-size: 0.95rem;
+  }
+  
+  .empty-negocios h3 {
+    font-size: 1.6rem;
+  }
+  
+  .empty-negocios p {
+    font-size: 1rem;
+  }
+}
+
+/* ========== TEMA OSCURO ========== */
+@media (prefers-color-scheme: dark) {
+  .mis-negocios {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
+  
+  .card-negocio {
+    background: rgba(45, 55, 72, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .contenido-negocio {
+    background: linear-gradient(145deg, #2d3748, #4a5568);
+  }
+  
+  .card-negocio h3 {
+    color: #f7fafc;
+    background: linear-gradient(135deg, #f1f5f9, #cbd5e1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .card-negocio p {
+    color: #cbd5e0;
+  }
+  
+  .negocio-footer {
+    border-top: 2px solid #4a5568;
+  }
+}
+
+/* ========== OPTIMIZACIONES DE RENDIMIENTO ========== */
+.card-negocio {
+  will-change: transform;
+  contain: layout;
+}
+
+.card-negocio img {
+  will-change: transform;
+}
+
+.btn-crear-negocio {
+  will-change: transform, background-color;
+}
+
+/* ========== ACCESIBILIDAD ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card-negocio:hover {
+    transform: none;
+  }
+  
+  .card-negocio:hover img {
+    transform: none;
+  }
+}
