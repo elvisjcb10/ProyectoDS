@@ -4,6 +4,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { getAuth, signOut } from 'firebase/auth';
 import appFireBase from '../credenciales';
 
+import "../styles/Header.css";
 const auth = getAuth(appFireBase);
 
 function Header({ nombreUsuario }) {
@@ -27,6 +28,14 @@ function Header({ nombreUsuario }) {
     }
   };
 
+  const handleLoginClick = () => {
+    navigate('/login?modo=login');
+  };
+
+  const handleRegisterClick = () => {
+    navigate('/login?modo=registro');
+  };
+
   return (
     <header className="header">
       <div className="logo">
@@ -46,6 +55,7 @@ function Header({ nombreUsuario }) {
       <nav className="nav">
 
         {nombreUsuario ? (
+          // Usuario logueado - Mostrar perfil y menú desplegable
           <div
             className="perfil-container"
             onClick={() => setMenuVisible(!menuVisible)}
@@ -58,12 +68,28 @@ function Header({ nombreUsuario }) {
                 <Link to="/mis-negocios">Mis negocios</Link>
                 <Link to="/mis-ligues">Mis likes</Link>
                 <Link to="/empresas-seguidas">Empresas que sigo</Link>
+
+                <Link to="/inicio">Inicio</Link>
                 <button onClick={handleLogout}>Cerrar sesión</button>
               </div>
             )}
           </div>
         ) : (
-          <Link to="/login" className="nav-link">Registrarse</Link>
+          // Usuario no logueado - Mostrar botones de autenticación
+          <div className="auth-buttons">
+            <button 
+              onClick={handleLoginClick} 
+              className="login-button"
+            >
+              Iniciar Sesión
+            </button>
+            <button 
+              onClick={handleRegisterClick} 
+              className="register-button"
+            >
+              Registrarse
+            </button>
+          </div>
         )}
       </nav>
     </header>

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+=======
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+>>>>>>> main
 import appFireBase from "../credenciales";
 import {
   getAuth,
@@ -11,8 +16,24 @@ const auth = getAuth(appFireBase);
 
 const Login = ({ onLoginSuccess }) => {
   const [registrando, setRegistrando] = useState(false);
+<<<<<<< HEAD
   const navigate = useNavigate();
 
+=======
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  // Verificar si viene de un botón específico
+  useEffect(() => {
+    const modo = searchParams.get('modo');
+    if (modo === 'registro') {
+      setRegistrando(true);
+    } else if (modo === 'login') {
+      setRegistrando(false);
+    }
+  }, [searchParams]);
+
+>>>>>>> main
   const functAutenticacion = async (e) => {
     e.preventDefault();
     const correo = e.target.email.value;
@@ -70,9 +91,19 @@ const Login = ({ onLoginSuccess }) => {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Columna derecha: Formulario sin tarjeta */}
         <div className="col-md-4 login-derecha">
           <form onSubmit={functAutenticacion} className="formulario">
+=======
+        {/* Columna derecha: Formulario */}
+        <div className="col-md-4 login-derecha">
+          <form onSubmit={functAutenticacion} className="formulario">
+            <h2 className="form-title">
+              {registrando ? "Crear Cuenta" : "Iniciar Sesión"}
+            </h2>
+            
+>>>>>>> main
             {registrando && (
               <input
                 id="nombre"
@@ -97,7 +128,11 @@ const Login = ({ onLoginSuccess }) => {
               required
             />
             <button className="btnform">
+<<<<<<< HEAD
               {registrando ? "Registrate" : "Inicia Sesión"}
+=======
+              {registrando ? "Registrarse" : "Iniciar Sesión"}
+>>>>>>> main
             </button>
             <h4 className="texto">
               {registrando ? "¿Ya tienes cuenta?" : "¿No tienes cuenta?"}
@@ -106,7 +141,11 @@ const Login = ({ onLoginSuccess }) => {
                 onClick={() => setRegistrando(!registrando)}
                 type="button"
               >
+<<<<<<< HEAD
                 {registrando ? "Inicia Sesión" : "Registrate"}
+=======
+                {registrando ? "Iniciar Sesión" : "Registrarse"}
+>>>>>>> main
               </button>
             </h4>
           </form>
@@ -116,4 +155,8 @@ const Login = ({ onLoginSuccess }) => {
   );
 };
 
+<<<<<<< HEAD
 export default Login;
+=======
+export default Login;
+>>>>>>> main

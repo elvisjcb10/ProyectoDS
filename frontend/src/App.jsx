@@ -12,6 +12,7 @@ import CrearNegocio from './components/CrearNegocio'; // ✅ crea el componente 
 import PerfilNegocio from './components/PerfilNegocio';
 import MisLikes from './components/MisLikes';
 import EmpresasSeguidas from './components/EmpresasSeguidas';
+import Inicio from './components/Inicio'; // ✅ Importar el componente Inicio
 import './App.css';
 
 const auth = getAuth(appFireBase);
@@ -50,6 +51,8 @@ function App() {
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/" element={<Inicio />} />
+          <Route path="/inicio" element={<Home />} />
           <Route path="/login" element={<Login onLoginSuccess={setDatosUsuario} />} />
           <Route path="/producto-detalle" element={<div>Detalle de Producto</div>} />
           <Route path="/pnegocio" element={<div>Publicar Negocio</div>} />
@@ -65,5 +68,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
